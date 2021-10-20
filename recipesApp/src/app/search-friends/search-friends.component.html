@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-3 col-md-4"></div>
+  <div class="col-xs-6 col-md-4">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        name="value"
+        autocomplete="off"
+        [(ngModel)]="value"
+      />
+      <div class="input-group-btn">
+        <button (click)="onSearch()" class="btn btn-primary">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="card" *ngFor="let person of arr; let i = index">
+      <div class="col-sm-6">{{ person.user_id }}</div>
+      <div class="col-sm-4">
+        <button class="button-friend-list" (click)="addFriend(i)">
+          Add Friend
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <button routerLink="/friendList" class="btn btn-light button-friend-list">
+      Your Friend List
+    </button>
+  </div>
+</div>
