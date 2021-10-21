@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
+#this file is for creating the database and collections 
 
 import pymongo
 from datetime import datetime

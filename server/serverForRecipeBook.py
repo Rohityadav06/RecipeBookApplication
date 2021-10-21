@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[10]:
-
-
+#this file is for server creation and running the server as per host specified in the code.
 import flask
 import json
 import pymongo
@@ -72,17 +67,24 @@ class Server:
                 
             @app.route("/searchFriends")
             def searchFriends():
+                searchQuery = request.args.get("searchQuery")
                 user_id = request.args.get("user_id")
                 searchedArray = []
-                
-
-                rgx = re.compile('.*'+user_id+'.*', re.IGNORECASE)
+                print(searchQuery)
+                user_id = user_id.lower()
+                searchQuery = searchQuery.lower()
+                rgx = re.compile('.*'+searchQuery+'.*', re.IGNORECASE)
                 user = users.find({"user_id": rgx })
-                
+                userFriends = []
+               
+                userDataFromDB = users.find_one({"user_id":user_id})
+                friendsArrayFromDB = userDataFromDB["friend_list"]
+
+                print(friendsArrayFromDB)
                 if(user != []):
                     for i in user:
-                        
-                        searchedArray.append({"user_id":i["user_id"]})
+                        if(i["user_id"] not in friendsArrayFromDB):
+                            searchedArray.append({"user_id":i["user_id"]})
                     print(searchedArray)
                     if(len(searchedArray) != 0):
                         return {"message":"found", "data":searchedArray}
@@ -160,54 +162,13 @@ class Server:
             
         except Exception as e:
             print(e)
-s = Server()            
-s.createServer()
-
-
-# In[ ]:
 
 
 
-
-
-# In[ ]:
-
+serverObject = Server()
 
 
 
-
-# In[8]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
+serverObject.createServer()
 
 
