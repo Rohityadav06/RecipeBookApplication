@@ -33,7 +33,7 @@ class CreateDB:
         users.insert_one(user9)
         users.insert_one(user10)
         users.insert_one(user11)
-        recipes.insert_one(recipes1)
+    
         
         #default Recipes
         
@@ -41,14 +41,14 @@ class CreateDB:
                     "user_id":"rohit",
                     "ingrediant":"1 (8 ounce) box elbow macaronicup butter,1 cup all-purpose flour,1 teaspoon salt,round black pepper to taste,2 cups milk,2 cups shredded Cheddar cheese",
                        "steps": "Melt butter in a saucepan over medium heat; stir in flour, salt, and pepper until smooth, about 5 minutes. Slowly pour milk into butter-flour mixture while continuously stirring until mixture is smooth and bubbling, about 5 minutes. Add Cheddar cheese to milk mixture and stir until cheese is melted, 2 to 4 minutes.",
-                   "date": int(datetime.now().timestamp())
+                   "date": int(datetime.now().timestamp()),
                    "time":"30min"
                    }
         recipes2 = {"name":"Macaroni cheese mix",
                     "user_id":"rohit",
                     "ingrediant":"1 (8 ounce) box elbow macaronicup butter,1 cup all-purpose flour,1 teaspoon salt,round black pepper to taste,2 cups milk,2 cups shredded Cheddar cheese",
                        "steps": "Melt butter in a saucepan over medium heat; stir in flour, salt, and pepper until smooth, about 5 minutes. Slowly pour milk into butter-flour mixture while continuously stirring until mixture is smooth and bubbling, about 5 minutes. Add Cheddar cheese to milk mixture and stir until cheese is melted, 2 to 4 minutes.",
-                   "date": int(datetime.now().timestamp())
+                   "date": int(datetime.now().timestamp()),
                    "time":"25min"
                    }
         
@@ -56,7 +56,7 @@ class CreateDB:
                     "user_id":"sahil",
                     "ingrediant":"1 (8 ounce) box elbow macaronicup butter,1 cup all-purpose flour,1 teaspoon salt,round black pepper to taste,2 cups milk,2 cups shredded Cheddar cheese",
                    "steps": "Melt butter in a saucepan over medium heat stir in flour, salt, and pepper until smooth, about 5 minutes. Slowly pour milk into butter-flour mixture while continuously stirring until mixture is smooth and bubbling, about 5 minutes. Add Cheddar cheese to milk mixture and stir until cheese is melted, 2 to 4 minutes.",
-                   "date": int(datetime.now().timestamp())
+                   "date": int(datetime.now().timestamp()),
                    "time":"20min"
                    }
         recipes.insert_one({ "user_id":"rohit","recipes":[recipes1,recipes2]})
