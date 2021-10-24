@@ -37,12 +37,14 @@ export class MainServiceService {
   }
 
   searchFriends(data){
+
     if(this.user_id == undefined){
       alert("kindly login again")
       this.router.navigate(["/"])
 
     }else{
-    return this.http.get("http://127.0.0.1:5000/searchFriends?user_id="+data)
+      console.log(data)
+    return this.http.get("http://127.0.0.1:5000/searchFriends?user_id="+this.user_id+"&&searchQuery="+data)
     }
   }
 

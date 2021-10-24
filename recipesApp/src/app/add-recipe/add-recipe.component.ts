@@ -25,7 +25,7 @@ export class AddRecipeComponent implements OnInit {
       ingredients: new FormControl('',Validators.required),
       steps :new FormControl('',Validators.required),
       time: new FormControl('',Validators.required),
-      date: new FormControl(new Date()),
+      date: new FormControl(Date.now()),
       user_id: new FormControl(this.mainService.user_id)
     })
   }
@@ -35,6 +35,7 @@ export class AddRecipeComponent implements OnInit {
  console.log(this.createRecipe.value)
  this.addRecipeService.postRecipe(this.createRecipe.value).subscribe((res)=>{
    console.log(res)
+   this.router.navigate(["/home"])
  }),
  (err)=>{
    console.log(err)
